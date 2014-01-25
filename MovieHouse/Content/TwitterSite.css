@@ -1,4 +1,10 @@
-﻿/* login page */
+﻿/* General*/
+#navHeader {
+    width: 55%;
+    display: inline-block;
+}
+
+/* login page */
 #loginForm {
     border-right: solid 2px #c8c8c8;
     float: left;
@@ -48,4 +54,37 @@
 
 #logoutForm {
     display: inline;
+}
+
+/* Alerts */
+.validation-summary-errors {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.validation-summary-errors {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.validation-summary-errors hr {
+  border-top-color: #e4b9c0;
+}
+
+.validation-summary-errors .alert-link {
+  color: #843534;
+}
+
+/* footer*/
+
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
 }
