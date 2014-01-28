@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MovieHouse.Logic.Movie>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<form method="GET" target="Search">
+    <div id="searchForm">
+        @Html.Label("Search")
+        <input type="search" name="searchQuery" class="form-control"/>
+        <input type="submit" value="Search for Movie" class="btn btn-primary"/>
+    </div>
+</form>
+        <br/>
+        <div class="searchResults">
+            @foreach (var movie in Model)
+            {
+                @Html.Partial("Search", movie);
+            }
+        </div>
+    
+    
+    
+    
+    
+
