@@ -62,6 +62,14 @@ namespace MovieHouse.Logic
             {
                 this.JsonMovieResponse = result;
                 this.Movies = JsonRootObject.movies;
+                foreach (Movie movie in Movies)
+                {
+                    foreach (object jsonObject in movie.abridged_cast)
+                    {
+                        CastMember castMember = JsonConvert.DeserializeObject<CastMember>(jsonObject.ToString());
+                        movie.Cast.Add(castMember);
+                    }
+                }
             }
             else
             {
@@ -79,26 +87,5 @@ namespace MovieHouse.Logic
             }
         }
 
-        public String DownloadString(WebClient webClient, String address, Encoding encoding)
-        {
-            byte[] buffer = webClient.DownloadData(address);
-
-            byte[] bom = encoding.GetPreamble();
-
-            if ((0 == bom.Length) || (buffer.Length < bom.Length))
-            {
-                return encoding.GetString(buffer);
-            }
-
-            for (int i = 0; i < bom.Length; i++)
-            {
-                if (buffer[i] != bom[i])
-                {
-                    return encoding.GetString(buffer);
-                }
-            }
-
-            return encoding.GetString(buffer, bom.Length, buffer.Length - bom.Length);
-        }
     }
 }

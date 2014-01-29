@@ -323,6 +323,7 @@
     <Content Include="Views\Shared\_BootstrapLayout.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Search\Movie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,15 +11,22 @@ namespace MovieHouse.Controllers
     {
         //
         // GET: /Search/
+        private static MovieRequest _movieRequest;
 
         public ActionResult Index(string searchQuery)
         {
-            if (searchQuery == null)
+            if (String.IsNullOrEmpty(searchQuery))
                 return View(new List<Movie>());
 
-            MovieRequest movieRequest = new MovieRequest(searchQuery);
-            movieRequest.DownloadJsonMovieResponse();
-            return View(movieRequest.Movies);
+            _movieRequest = new MovieRequest(searchQuery);
+            _movieRequest.DownloadJsonMovieResponse();
+            return View(_movieRequest.Movies);
+        }
+
+        public ActionResult Movie(string id)
+        {
+            var movie = _movieRequest.Movies.FirstOrDefault(m => m.id == id);
+            return View(movie ?? new Movie());
         }
 
     }

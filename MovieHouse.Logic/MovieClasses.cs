@@ -45,6 +45,11 @@ namespace MovieHouse.Logic
 
     public class Movie
     {
+        public Movie()
+        {
+            Cast = new List<CastMember>();
+        }
+
         public string id { get; set; }
         public string title { get; set; }
         public int year { get; set; }
@@ -58,6 +63,8 @@ namespace MovieHouse.Logic
         public List<object> abridged_cast { get; set; }
         public AlternateIds alternate_ids { get; set; }
         public Links links { get; set; }
+
+        public List<CastMember> Cast { get; set; }
     }
 
     public class Links2
@@ -72,4 +79,12 @@ namespace MovieHouse.Logic
         public Links2 links { get; set; }
         public string link_template { get; set; }
     }
+    
+    public class CastMember
+    {
+        public string name { get; set; }
+        public string id { get; set; }
+        public string[] characters { get; set; }
+    }
+
 }

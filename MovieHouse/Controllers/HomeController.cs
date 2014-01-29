@@ -12,13 +12,8 @@ namespace MovieHouse.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            var model = new MovieRequest("Resident Evil");
-            model.DownloadJsonMovieResponse();
-
-
-
-            return View(model);
+            
+            return View();
         }
 
         public ActionResult About()

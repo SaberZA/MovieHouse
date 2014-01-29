@@ -1,4 +1,6 @@
 ﻿@model MovieHouse.Logic.Movie
 
-<h4>@Model.title</h4>
-<p> <img src ="@Model.posters.thumbnail"/> </p>
+<h4>@Model.title</h4> 
+<a href="@Url.Action("Movie","Search", new {@id = Model.id})">
+    <img src ="@Model.posters.thumbnail"/>
+</a> 

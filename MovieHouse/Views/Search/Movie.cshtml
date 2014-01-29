@@ -1,0 +1,36 @@
+﻿@model MovieHouse.Logic.Movie
+
+@{
+    ViewBag.Title = "Movie";
+}
+
+<h4>Movie Info</h4>
+<h2>@Model.title</h2>
+<img src="@Model.posters.profile"/>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Characters</td>
+    </tr>
+        </thead>
+    @foreach (var castMember in @Model.Cast)
+    {
+        <tr class="castMember">
+            <td>@castMember.name</td>
+            <td>
+                @foreach (string character in @castMember.characters)
+                {
+                    <p>@character,</p>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<h4>Ratings</h4>
+<p>Audience Rating: @Model.ratings.audience_rating</p>
+<p>Audience Score: @Model.ratings.audience_score</p>
+<p>Critics Rating: @Model.ratings.critics_rating</p>
+<p>Critics Score: @Model.ratings.critics_score</p>
+
